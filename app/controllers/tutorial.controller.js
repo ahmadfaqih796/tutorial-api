@@ -19,18 +19,19 @@ const getPagingData = (data, page, limit) => {
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
+  if (!req.body.nama) {
     res.status(400).send({
-      message: "Data tidak boleh kosong",
+      message: "Nama tidak boleh kosong",
     });
     return;
   }
 
   // Create a Tutorial
   const tutorial = {
-    title: req.body.title,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false,
+    nama: req.body.nama,
+    umur: req.body.umur,
+    alamat: req.body.alamat,
+    status: req.body.status ? req.body.status : false,
   };
 
   // Save Tutorial in the database
