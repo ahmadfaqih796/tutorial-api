@@ -49,8 +49,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Tutorials from the database.
 exports.findAll = (req, res) => {
-  const { page, size, title } = req.query;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  const { page, size, nama } = req.query;
+  var condition = nama ? { nama: { [Op.like]: `%${nama}%` } } : null;
 
   const { limit, offset } = getPagination(page, size);
 
@@ -66,23 +66,6 @@ exports.findAll = (req, res) => {
       });
     });
 };
-
-// Retrieve all Tutorials from the database.
-// exports.findAll = (req, res) => {
-//   const title = req.query.title;
-//   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-
-//   Tutorial.findAll({ where: condition })
-//     .then((data) => {
-//       res.send(data);
-//     })
-//     .catch((err) => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving tutorials.",
-//       });
-//     });
-// };
 
 // Find a single Tutorial with an id
 exports.findOne = (req, res) => {
@@ -124,7 +107,7 @@ exports.update = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error updating Tutorial with id=" + id,
+        message: "Error updating Tutorial with id = " + id,
       });
     });
 };
