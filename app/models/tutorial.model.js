@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false,
       validate: {
         notNull: {
-          msg: "Nama tidak boleh kosong",
+          msg: "Silahkan masukan nama anda",
         },
       },
     },
@@ -20,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false,
       validate: {
         notNull: {
-          msg: "Umur tidak boleh kosong",
+          msg: "Silahkan masukan umur anda",
         },
         isInt: {
           msg: "Umur harus berupa angka",
@@ -37,7 +37,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false,
       validate: {
         notNull: {
-          msg: "Alamat tidak boleh kosong",
+          msg: "Silahkan masukan alamat anda",
         },
       },
     },
