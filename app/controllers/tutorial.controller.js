@@ -19,12 +19,12 @@ const getPagingData = (data, page, limit) => {
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.nama) {
-    res.status(400).send({
-      message: "Nama tidak boleh kosong",
-    });
-    return;
-  }
+  // if (!req.body.nama) {
+  //   res.status(400).send({
+  //     message: "Nama tidak boleh kosong",
+  //   });
+  //   return;
+  // }
 
   // Create a Tutorial
   const tutorial = {
