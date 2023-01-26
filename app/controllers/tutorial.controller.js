@@ -154,16 +154,16 @@ exports.deleteAll = (req, res) => {
     });
 };
 
-// Find all published Tutorials
+// Find all status Tutorials
 exports.findAllPublished = (req, res) => {
-  Tutorial.findAll({ where: { published: true } })
+  Tutorial.findAll({ where: { status: true } })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials.",
+          err.message || "Beberapa kesalahan terjadi saat mengambil data.",
       });
     });
 };
