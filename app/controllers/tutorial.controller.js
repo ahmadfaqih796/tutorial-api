@@ -67,7 +67,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single Tutorial with an id
+// mencari single data berdasarkan id
 exports.findOne = (req, res) => {
   const id = req.params.id;
   Tutorial.findByPk(id)
