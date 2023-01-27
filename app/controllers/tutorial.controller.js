@@ -25,7 +25,7 @@ exports.create = (req, res) => {
     });
     return;
   }
-  
+
   // Create a Tutorial
   const tutorial = {
     nama: req.body.nama,
@@ -42,7 +42,7 @@ exports.create = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial.",
+          err.message || "Beberapa kesalahan terjadi saat membuat data",
       });
     });
 };
@@ -62,7 +62,7 @@ exports.findAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials.",
+          err.message || "Beberapa kesalahan terjadi saat mengambil data",
       });
     });
 };
@@ -76,13 +76,13 @@ exports.findOne = (req, res) => {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Tutorial with id=${id}.`,
+          message: `Tidak dapat menemukan data dengan id = ${id}.`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Tutorial with id=" + id,
+        message: "Kesalahan mengambil data dengan id = " + id,
       });
     });
 };
@@ -105,17 +105,17 @@ exports.update = (req, res) => {
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was updated successfully.",
+          message: "data berhasil diperbarui.",
         });
       } else {
         res.send({
-          message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found or req.body is empty!`,
+          message: `Tidak dapat memperbarui data dengan id=${id}. Mungkin data tidak ditemukan atau req.body kosong!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error updating Tutorial with id = " + id,
+        message: "Kesalahan memperbarui data dengan id =" + id,
       });
     });
 };
@@ -130,17 +130,17 @@ exports.delete = (req, res) => {
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was deleted successfully!",
+          message: "data berhasil dihapus",
         });
       } else {
         res.send({
-          message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`,
+          message: `Tidak dapat menghapus data dengan id=${id}. Mungkin data tidak ditemukan!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete Tutorial with id=" + id,
+        message: "Tidak dapat menghapus data dengan id = " + id,
       });
     });
 };
@@ -152,18 +152,18 @@ exports.deleteAll = (req, res) => {
     truncate: false,
   })
     .then((nums) => {
-      res.send({ message: `${nums} Tutorials were deleted successfully!` });
+      res.send({ message: `${nums} Data berhasil dihapus !` });
     })
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all tutorials.",
+          err.message || "Beberapa kesalahan terjadi saat menghapus semua data",
       });
     });
 };
 
 // Find all status Tutorials
-exports.findAllPublished = (req, res) => {
+exports.findAllStatus = (req, res) => {
   Tutorial.findAll({ where: { status: true } })
     .then((data) => {
       res.send(data);
@@ -171,7 +171,7 @@ exports.findAllPublished = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Beberapa kesalahan terjadi saat mengambil data.",
+          err.message || "Beberapa kesalahan terjadi saat mengambil data",
       });
     });
 };
