@@ -62,7 +62,7 @@ exports.findAll = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message:
-          err.message || "Beberapa kesalahan terjadi saat mengambil data.",
+          err.message || "Beberapa kesalahan terjadi saat mengambil data",
       });
     });
 };
