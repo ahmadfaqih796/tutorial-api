@@ -91,6 +91,14 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
+  // Validate request
+  if (!req.body.nama || !req.body.alamat || !req.body.umur) {
+    res.status(400).send({
+      message: "Data tidak boleh ada yang kosong",
+    });
+    return;
+  }
+
   Tutorial.update(req.body, {
     where: { id: id },
   })
